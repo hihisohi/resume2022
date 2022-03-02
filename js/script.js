@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+    const pageContainer = document.querySelector('[data-scroll-container]');
 
     ScrollTrigger.matchMedia({
 
@@ -7,7 +8,6 @@ document.addEventListener('DOMContentLoaded', function () {
         "(min-width: 960px)": function () {
 
             // scroll
-            const pageContainer = document.querySelector('[data-scroll-container]');
             const scroller = new LocomotiveScroll({
                 el: pageContainer,
                 smooth: true
@@ -62,6 +62,46 @@ document.addEventListener('DOMContentLoaded', function () {
                 ele.addEventListener('click', function (e) {
                     e.preventDefault();
                     scroller.scrollTo(document.querySelector(ele.getAttribute('href')));
+                });
+            });
+
+
+
+            // main - intro circle
+            const introCircle = document.querySelector('.intro-circle');
+            const innerBg = introCircle.querySelector('.inner-bg');
+            const introCircleR = introCircle.clientWidth;
+
+            let introCircleCenter = {
+                x: document.querySelector('.intro-circle').clientLeft + introCircleR/2,
+                y: document.querySelector('.intro-circle').clientTop + introCircleR/2
+            };
+
+            console.log('중심' + introCircleCenter.x, introCircleCenter.y, document.querySelector('.intro-circle').clientLeft);
+
+            introCircle.addEventListener('mousemove', function (e) {
+                gsap.to(innerBg, 2, {
+                    x: (e.offsetX - introCircleCenter.x) * .6,
+                    y: (e.offsetY - introCircleCenter.y) * .6,
+                    scale: .9,
+                    ease: Elastic.easeOut.config(1.2, 0.7)
+                });
+
+                gsap.to(innerBg, 1, {
+                    filter: 'grayscale(0)',
+                });
+            });
+
+            introCircle.addEventListener('mouseleave', function () {
+                gsap.to(innerBg, 2, {
+                    x: 0,
+                    y: 0,
+                    scale: 1,
+                    ease: Elastic.easeOut.config(1.2, 0.7)
+                });
+
+                gsap.to(innerBg, 1, {
+                    filter: 'grayscale(1)',
                 });
             });
 
@@ -157,9 +197,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     ele.style.backgroundColor = menuColor;
                 });
                 document.querySelector('.verti-line').style.backgroundColor = menuColor;
+                document.querySelector('.prog-txt-rotate').style.fill = fontColor;
 
             }
-
 
 
 
@@ -393,21 +433,84 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
 
+            // main- progress bar
+            const progFill = document.querySelector('.prog-fill');
+            const progFillHei = gsap.timeline();
+            progFillHei.to(progFill,{
+              scrollTrigger:{
+                trigger: pageContainer,
+                scroller: pageContainer,
+                start: "top top",
+                end: "bottom bottom",
+                scrub:true,
+                onUpdate: self => progFill.style.height = Math.floor((self.progress)*100) + '%'
+              },
+              ease: Circ.easeOut
+            });
+
+            const progSvgTxt = document.querySelector('.progress-icon svg');
+            const progTxtRotate = gsap.timeline();
+            progTxtRotate.to(progSvgTxt,{
+                scrollTrigger:{
+                  trigger: pageContainer,
+                  scroller: pageContainer,
+                  start: "top top",
+                  end: "bottom bottom",
+                  scrub:true,
+                },
+                rotate: '360deg',
+                ease: Circ.easeOut
+            });
 
 
-            // main - intro text animation
+            var scrollableElement = document.body;
+            scrollableElement.addEventListener('wheel', checkScrollDirection);
+
+            function checkScrollDirection(event) {
+                if (checkScrollDirectionIsUp(event)) {
+                    console.log('UP');
+                } else {
+                    console.log('Down');
+                }
+            }
+            function checkScrollDirectionIsUp(event) {
+                if (event.wheelDelta) {
+                    return event.wheelDelta > 0;
+                }
+                return event.deltaY < 0;
+            }
+  
+
+
+
+
+            // main - intro title
             const introTxt = document.querySelectorAll('.intro-title span');
             introTxt.forEach(function (ele, idx) {
                 let arr = ele.innerHTML.split('');
                 ele.innerHTML = "";
         
                 arr.forEach(function (ele2, idx2) {
-                    const innerSpan = document.createElement('span');
-                    innerSpan.className = 'span0' + (idx2 + 1);
-                    innerSpan.innerHTML = ele2;
-                    ele.appendChild(innerSpan);
+                    const txtFill = document.createElement('strong');
+                    txtFill.className = 'txt-fill';
+
+                    const stroke = document.createElement('span');
+                    stroke.className = 'stroke';
+                    stroke.innerHTML = ele2;
+
+                    const i = document.createElement('i');
+                    const fill = document.createElement('span');
+                    fill.className = 'fill';
+                    fill.innerHTML = ele2;
+
+                    i.appendChild(fill);
+
+                    txtFill.appendChild(stroke);
+                    txtFill.appendChild(i);
+
+                    ele.appendChild(txtFill);
         
-                    innerSpan.style.animationDelay = idx + idx2 * 0.1 + 's';
+                    i.style.animationDelay = 0.5 + idx*0.3 + idx2 * 0.05 + 's';
         
                 });
         
@@ -431,77 +534,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-
-
-
-
-    // main - intro photo slide
-    const photoSrc = document.querySelector('.photo-img').getAttribute('xlink:href');
-    let str = photoSrc.substring(photoSrc.lastIndexOf('_') + 1, photoSrc.lastIndexOf('.'));
-    let num = parseInt(str);
-    const maxImgIdx = 8;
-
-    function photoSlide(imgIdx) {
-        num++;
-        if (num > imgIdx) {
-            num = 1;
-        }
-
-        if (num < 10) {
-            str = '0' + num;
-        } else {
-            str = num;
-        }
-        str = photoSrc.replace(photoSrc.substring(photoSrc.lastIndexOf('_') + 1, photoSrc.lastIndexOf('.')), str);
-        document.querySelector('.photo-img').setAttribute('xlink:href', str);
-    }
-    setInterval(function () {
-        photoSlide(maxImgIdx)
-    }, 2500);
-
-    const introCircle = document.querySelector('.intro-circle');
-    const svgBgCircle = document.querySelector('.svg-bg-circle');
-    const photoShape = document.querySelector('.photo-shape');
-
-    let introCircleCenter = {
-        x: document.querySelector('.intro-circle').offsetLeft,
-        y: document.querySelector('.intro-circle').offsetTop
-    };
-
-    console.log('중심' + introCircleCenter.x, introCircleCenter.y);
-
-    introCircle.addEventListener('mouseenter', function (e) {
-        let posX = introCircleCenter.x - e.clientX;
-        let posY = introCircleCenter.y - e.clientY;
-
-        gsap.to(photoShape, 2, {
-            scale: 1.02,
-            rotate: Math.atan2(posY, posX),
-            opacity: .7,
-            ease: Elastic.easeOut.config(1.2, 0.5)
-        });
-
-        gsap.to(svgBgCircle, 2, {
-            x: posX / 12,
-            y: posY / 10,
-            ease: Elastic.easeOut.config(1.2, 0.7)
-        });
-    });
-
-    introCircle.addEventListener('mouseleave', function () {
-        gsap.to(photoShape, 2, {
-            scale: 1,
-            rotate: 0,
-            opacity: .6,
-            ease: Elastic.easeOut.config(1.2, 0.5)
-        });
-
-        gsap.to(svgBgCircle, 2, {
-            x: 0,
-            y: 0,
-            ease: Elastic.easeOut.config(1.2, 0.7)
-        });
-    });
+    
 
 
 
