@@ -1,71 +1,62 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+
+    // scroll - smooth scroll by locomotiveScroll
     const pageContainer = document.querySelector('[data-scroll-container]');
+
+    const scroller = new LocomotiveScroll({
+        el: pageContainer,
+        smooth: true
+    });
+
+    scroller.on('scroll', ScrollTrigger.update);
+
+    ScrollTrigger.scrollerProxy(pageContainer, {
+        scrollTop(value) {
+            return arguments.length ?
+                scroller.scrollTo(value, 0, 0) :
+                scroller.scroll.instance.scroll.y;
+        },
+        getBoundingClientRect() {
+            return {
+                left: 0,
+                top: 0,
+                width: window.innerWidth,
+                height: window.innerHeight
+            };
+        },
+        pinType: pageContainer.style.transform ? 'transform' : 'fixed'
+    });
+
+    // scroll - pin section & horizental scroll
+    let pinWrap = document.querySelector('.pin-wrap');
+    let pinWrapWidth = pinWrap.offsetWidth;
+    let horizontalScrollLength = pinWrapWidth - window.innerWidth;
+
+    gsap.to('.pin-wrap', {
+        scrollTrigger: {
+            scroller: pageContainer,
+            scrub: true,
+            trigger: '.section-pin',
+            pin: true,
+            // anticipatePin: 1,
+            start: '50% 50%',
+            end: pinWrapWidth
+        },
+        x: -horizontalScrollLength,
+        ease: 'none'
+    });
+    ScrollTrigger.addEventListener('refresh', () => scroller.update());
+    ScrollTrigger.refresh();
+    
+
+
+
 
     ScrollTrigger.matchMedia({
 
         // large (Pc)
         "(min-width: 960px)": function () {
-
-            // scroll
-            const scroller = new LocomotiveScroll({
-                el: pageContainer,
-                smooth: true
-            });
-
-            scroller.on('scroll', ScrollTrigger.update);
-
-            ScrollTrigger.scrollerProxy(pageContainer, {
-                scrollTop(value) {
-                    return arguments.length ?
-                        scroller.scrollTo(value, 0, 0) :
-                        scroller.scroll.instance.scroll.y;
-                },
-                getBoundingClientRect() {
-                    return {
-                        left: 0,
-                        top: 0,
-                        width: window.innerWidth,
-                        height: window.innerHeight
-                    };
-                },
-                pinType: pageContainer.style.transform ? 'transform' : 'fixed'
-            });
-
-
-            // pin section & horizental scroll
-            let pinWrap = document.querySelector('.pin-wrap');
-            let pinWrapWidth = pinWrap.offsetWidth;
-            let horizontalScrollLength = pinWrapWidth - window.innerWidth;
-
-            gsap.to('.pin-wrap', {
-                scrollTrigger: {
-                    scroller: pageContainer,
-                    scrub: true,
-                    trigger: '.section-pin',
-                    pin: true,
-                    // anticipatePin: 1,
-                    start: '50% 50%',
-                    end: pinWrapWidth
-                },
-                x: -horizontalScrollLength,
-                ease: 'none'
-            });
-            ScrollTrigger.addEventListener('refresh', () => scroller.update());
-            ScrollTrigger.refresh();
-
-
-            // menu click
-            const gnbA = gnb.querySelectorAll('a');
-            
-            gnbA.forEach(function (ele, idx) {
-                ele.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    scroller.scrollTo(document.querySelector(ele.getAttribute('href')));
-                });
-            });
-
-
 
             // main - intro circle
             const introCircle = document.querySelector('.intro-circle');
@@ -109,7 +100,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // main - index circle
             let indexCircle = document.querySelector('.index-circle');
-            let skillSectHei = document.querySelector('.section__skills').offsetHeight;
             let skillSecWid = document.querySelector('.section__skills').offsetWidth;
 
             gsap.to(indexCircle, {
@@ -117,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     scroller: pageContainer,
                     trigger: '.section__skills',
                     start: '30% bottom',
-                    end: skillSecWid,
+                    end: '200vh',
                     scrub: 0.1,
                     onLeave: () => circleHide(),
                     onEnterBack: () => circleShow(),
@@ -135,71 +125,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 indexCircle.style.display = 'block';
             }
 
-
-
-            // main - background color change
-            let body = document.body;
-            let expSectHei = document.querySelector('.section__experience').offsetHeight;
-
-            gsap.to(body, {
-                scrollTrigger: {
-                    scroller: pageContainer,
-                    trigger: '.section__skills',
-                    start: '80% bottom',
-                    end: skillSectHei,
-                    onEnter: () => bgChange('white'),
-                    onLeaveBack: () => bgChange('origin'),
-                }
-            });
-
-            gsap.to(body, {
-                scrollTrigger: {
-                    scroller: pageContainer,
-                    trigger: '.section__experience',
-                    start: 'top 50%',
-                    end: '+=' + expSectHei,
-                    onEnter: () => bgChange('black'),
-                    onLeaveBack: () => bgChange('white'),
-                    onLeave: () => bgChange('origin'),
-                    onEnterBack: () => bgChange('black'),
-                    // markers: true
-                }
-            });
-
-            function bgChange(color) {
-                let bgColor, fontColor, menuColor;
-
-                switch (color) {
-                    case 'origin':
-                        bgColor = '#f0f0f2';
-                        fontColor = '#333';
-                        menuColor = '#333';
-                        break;
-                    case 'black':
-                        bgColor = '#1e1e1e';
-                        fontColor = '#f0f0f2';
-                        menuColor = '#f0f0f2';
-                        break;
-                    case 'white':
-                        bgColor = '#fff';
-                        fontColor = '#333';
-                        menuColor = '#333';
-                        break;
-                }
-
-                if (menu.classList.contains('open')) {
-                    menuColor = '#f0f0f2';
-                }
-
-                document.body.style.backgroundColor = bgColor;
-                document.body.style.color = fontColor;
-                document.querySelectorAll('.hamburger span').forEach(function (ele, idx) {
-                    ele.style.backgroundColor = menuColor;
-                });
-                document.querySelector('.verti-line').style.backgroundColor = menuColor;
-                document.querySelector('.prog-txt-rotate').style.fill = fontColor;
-
-            }
 
 
 
@@ -432,6 +357,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
 
+            // menu click
+            const gnbA = gnb.querySelectorAll('a');
+
+            gnbA.forEach(function (ele, idx) {
+                ele.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    scroller.scrollTo(document.querySelector(ele.getAttribute('href')));
+                });
+            });
+
 
             // main- progress bar
             const progFill = document.querySelector('.prog-fill');
@@ -463,26 +398,6 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
 
-            var scrollableElement = document.body;
-            scrollableElement.addEventListener('wheel', checkScrollDirection);
-
-            function checkScrollDirection(event) {
-                if (checkScrollDirectionIsUp(event)) {
-                    console.log('UP');
-                } else {
-                    console.log('Down');
-                }
-            }
-            function checkScrollDirectionIsUp(event) {
-                if (event.wheelDelta) {
-                    return event.wheelDelta > 0;
-                }
-                return event.deltaY < 0;
-            }
-  
-
-
-
 
             // main - intro title
             const introTxt = document.querySelectorAll('.intro-title span');
@@ -511,10 +426,109 @@ document.addEventListener('DOMContentLoaded', function () {
                     ele.appendChild(txtFill);
         
                     i.style.animationDelay = 0.5 + idx*0.3 + idx2 * 0.05 + 's';
-        
                 });
-        
             });
+
+
+
+            // main - background color change
+            let body = document.body;
+            let expSectHei = document.querySelector('.section__experience').offsetHeight;
+            let skillSectHei = document.querySelector('.section__skills').offsetHeight;
+
+            gsap.to(body, {
+                scrollTrigger: {
+                    scroller: pageContainer,
+                    trigger: '.section__skills',
+                    start: '80% bottom',
+                    end: skillSectHei,
+                    onEnter: () => bgChange('white'),
+                    onLeaveBack: () => bgChange('origin'),
+                }
+            });
+
+            gsap.to(body, {
+                scrollTrigger: {
+                    scroller: pageContainer,
+                    trigger: '.section__experience',
+                    start: 'top 50%',
+                    end: '+=' + expSectHei,
+                    onEnter: () => bgChange('black'),
+                    onLeaveBack: () => bgChange('white'),
+                    onLeave: () => bgChange('origin'),
+                    onEnterBack: () => bgChange('black'),
+                    // markers: true
+                }
+            });
+
+            function bgChange(color) {
+                let bgColor, fontColor, menuColor;
+
+                switch (color) {
+                    case 'origin':
+                        bgColor = '#f0f0f2';
+                        fontColor = '#333';
+                        menuColor = '#333';
+                        break;
+                    case 'black':
+                        bgColor = '#1e1e1e';
+                        fontColor = '#f0f0f2';
+                        menuColor = '#f0f0f2';
+                        break;
+                    case 'white':
+                        bgColor = '#fff';
+                        fontColor = '#333';
+                        menuColor = '#333';
+                        break;
+                }
+
+                if (menu.classList.contains('open')) {
+                    menuColor = '#f0f0f2';
+                }
+
+                document.body.style.backgroundColor = bgColor;
+                document.body.style.color = fontColor;
+                document.querySelectorAll('.wrapper a').forEach(function (ele, idx) {
+                    ele.style.color = fontColor;
+                });
+                document.querySelectorAll('.hamburger span').forEach(function (ele, idx) {
+                    ele.style.backgroundColor = menuColor;
+                });
+                document.querySelector('.verti-line').style.backgroundColor = menuColor;
+                document.querySelector('.prog-txt-rotate').style.fill = fontColor;
+                document.querySelector('.logo a').style.color = fontColor;
+
+            }
+
+
+
+            // main - skill section : slide & mousehover effect
+            var swiper2 = new Swiper('.skill-icons', {
+                effect: 'fade',
+                fadeEffect: {
+                    crossFade: true
+                },
+                grabCursor: true,
+                autoplay: {
+                    delay: 1500,
+                    disableOnInteraction: false,
+                },
+                speed: 800,
+                loop: true
+            });
+
+            const skillBox = document.querySelectorAll('.skill-box');
+            skillBox.forEach(function (ele, idx) {
+                ele.addEventListener('mouseenter', function () {
+                    ele.children[0].children[1].children[0].style.opacity = 0;
+                    ele.children[0].children[1].children[1].style.opacity = 1;
+                });
+                ele.addEventListener('mouseleave', function () {
+                    ele.children[0].children[1].children[0].style.opacity = 1;
+                    ele.children[0].children[1].children[1].style.opacity = 0;
+                });
+            });
+
 
 
 
@@ -527,46 +541,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-
-
-
     
-
-
-
-    
-
-
-
-
-
-    // main - skill section : slide & mousehover effect
-    var swiper2 = new Swiper('.skill-icons', {
-        effect: 'fade',
-        fadeEffect: {
-            crossFade: true
-        },
-        grabCursor: true,
-        autoplay: {
-            delay: 1500,
-            disableOnInteraction: false,
-        },
-        speed: 800,
-        loop: true
-    });
-
-    const skillBox = document.querySelectorAll('.skill-box');
-    skillBox.forEach(function (ele, idx) {
-        ele.addEventListener('mouseenter', function () {
-            ele.children[0].children[1].children[0].style.opacity = 0;
-            ele.children[0].children[1].children[1].style.opacity = 1;
-        });
-        ele.addEventListener('mouseleave', function () {
-            ele.children[0].children[1].children[0].style.opacity = 1;
-            ele.children[0].children[1].children[1].style.opacity = 0;
-        });
-    });
-
 
 
 });
