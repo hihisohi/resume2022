@@ -6,7 +6,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const scroller = new LocomotiveScroll({
         el: pageContainer,
-        smooth: true
+        inertia: 0.8,
+        smooth: true,
+        getDirection: true,
+        mobile: {
+            breakpoint: 0,
+            smooth: false,
+            getDirection: true,
+        },
+        tablet: {
+            breakpoint: 0,
+            smooth: false,
+            getDirection: true,
+        },
     });
 
     scroller.on('scroll', ScrollTrigger.update);
@@ -27,28 +39,8 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         pinType: pageContainer.style.transform ? 'transform' : 'fixed'
     });
-
-    // scroll - pin section & horizental scroll
-    let pinWrap = document.querySelector('.pin-wrap');
-    let pinWrapWidth = pinWrap.offsetWidth;
-    let horizontalScrollLength = pinWrapWidth - window.innerWidth;
-
-    gsap.to('.pin-wrap', {
-        scrollTrigger: {
-            scroller: pageContainer,
-            scrub: true,
-            trigger: '.section-pin',
-            pin: true,
-            // anticipatePin: 1,
-            start: '50% 50%',
-            end: pinWrapWidth
-        },
-        x: -horizontalScrollLength,
-        ease: 'none'
-    });
-    ScrollTrigger.addEventListener('refresh', () => scroller.update());
-    ScrollTrigger.refresh();
     
+
 
 
 
@@ -58,100 +50,27 @@ document.addEventListener('DOMContentLoaded', function () {
         // large (Pc)
         "(min-width: 960px)": function () {
 
-            // main - intro circle
-            const introCircle = document.querySelector('.intro-circle');
-            const innerBg = introCircle.querySelector('.inner-bg');
-            const introCircleR = introCircle.clientWidth;
+            // scroll - pin section & horizental scroll
+            let pinWrap = document.querySelector('.pin-wrap');
+            let pinWrapWidth = pinWrap.offsetWidth;
+            let horizontalScrollLength = pinWrapWidth - window.innerWidth;
 
-            let introCircleCenter = {
-                x: document.querySelector('.intro-circle').clientLeft + introCircleR/2,
-                y: document.querySelector('.intro-circle').clientTop + introCircleR/2
-            };
-
-            console.log('중심' + introCircleCenter.x, introCircleCenter.y, document.querySelector('.intro-circle').clientLeft);
-
-            introCircle.addEventListener('mousemove', function (e) {
-                gsap.to(innerBg, 2, {
-                    x: (e.offsetX - introCircleCenter.x) * .6,
-                    y: (e.offsetY - introCircleCenter.y) * .6,
-                    scale: .9,
-                    ease: Elastic.easeOut.config(1.2, 0.7)
-                });
-
-                gsap.to(innerBg, 1, {
-                    filter: 'grayscale(0)',
-                });
-            });
-
-            introCircle.addEventListener('mouseleave', function () {
-                gsap.to(innerBg, 2, {
-                    x: 0,
-                    y: 0,
-                    scale: 1,
-                    ease: Elastic.easeOut.config(1.2, 0.7)
-                });
-
-                gsap.to(innerBg, 1, {
-                    filter: 'grayscale(1)',
-                });
-            });
-
-
-
-            // main - index circle
-            let indexCircle = document.querySelector('.index-circle');
-            let skillSecWid = document.querySelector('.section__skills').offsetWidth;
-
-            gsap.to(indexCircle, {
+            gsap.to('.pin-wrap', {
                 scrollTrigger: {
                     scroller: pageContainer,
-                    trigger: '.section__skills',
-                    start: '30% bottom',
-                    end: '200vh',
-                    scrub: 0.1,
-                    onLeave: () => circleHide(),
-                    onEnterBack: () => circleShow(),
-                    // markers: true
+                    scrub: true,
+                    trigger: '.section-pin',
+                    pin: true,
+                    // anticipatePin: 1,
+                    start: '50% 50%',
+                    end: pinWrapWidth
                 },
-                ease: 'none',
-                scale: 10,
+                x: -horizontalScrollLength,
+                ease: 'none'
             });
+            ScrollTrigger.addEventListener('refresh', () => scroller.update());
+            ScrollTrigger.refresh();
 
-            function circleHide() {
-                indexCircle.style.display = 'none';
-            }
-
-            function circleShow() {
-                indexCircle.style.display = 'block';
-            }
-
-
-
-
-            // main - about section : back circle size & position
-            const aboutThings = document.querySelectorAll('.about-things li');
-
-            aboutThings.forEach(function (ele, idx) {
-                const aboutText = ele.children[1].innerHTML;
-                var textLeng = aboutText.length;
-
-                ele.style.top = ele.dataset.postop + '%';
-                ele.style.left = ele.dataset.posleft + '%';
-                ele.children[0].style.opacity = (idx + 1) * 0.03;
-                ele.children[1].style.transform = 'rotate(' + (5 + idx * 10 * ((-1) ** idx)) + 'deg)';
-
-                let su;
-                if (textLeng < 10) {
-                    su = 2.5;
-                } else if (textLeng > 30) {
-                    su = .6;
-                } else {
-                    su = .9;
-                }
-                ele.children[0].style.width = textLeng * su + 'rem';
-                ele.children[0].style.height = textLeng * su + 'rem';
-
-            });
 
 
 
@@ -275,22 +194,115 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+            // main - about section : back circle size & position
+            const aboutThings = document.querySelectorAll('.about-things li');
+
+            aboutThings.forEach(function (ele, idx) {
+                const aboutText = ele.children[1].innerHTML;
+                var textLeng = aboutText.length;
+
+                ele.style.top = ele.dataset.postop + '%';
+                ele.style.left = ele.dataset.posleft + '%';
+                ele.children[0].style.opacity = (idx + 1) * 0.03;
+                ele.children[1].style.transform = 'rotate(' + (5 + idx * 10 * ((-1) ** idx)) + 'deg)';
+
+                let su;
+                if (textLeng < 10) {
+                    su = 2.5;
+                } else if (textLeng > 30) {
+                    su = .6;
+                } else {
+                    su = .9;
+                }
+                ele.children[0].style.width = textLeng * su + 'rem';
+                ele.children[0].style.height = textLeng * su + 'rem';
+
+            });
+
+
+            // main - skill section : mousehover effect
+            const skillBox = document.querySelectorAll('.skill-box');
+            skillBox.forEach(function (ele, idx) {
+                ele.addEventListener('mouseenter', function () {
+                    ele.children[0].children[1].children[0].style.opacity = 0;
+                    ele.children[0].children[1].children[1].style.opacity = 1;
+                });
+                ele.addEventListener('mouseleave', function () {
+                    ele.children[0].children[1].children[0].style.opacity = 1;
+                    ele.children[0].children[1].children[1].style.opacity = 0;
+                });
+            });
+
+
+
+
+
+
+
+
         },
 
 
 
 
         // medium (Tablet & Moblie)
-        "(min-width: 600px) and (max-width: 959px)": function () {
+        "(min-width: 500px) and (max-width: 959px)": function () {
             // The ScrollTriggers created inside these functions are segregated and get
-            // reverted/killed when the media query doesn't match anymore. 
+            // reverted/killed when the media query doesn't match anymore.
+
+
+            // scroll - pin section & horizental scroll
+            let pinWrap = document.querySelector('.pin-wrap');
+            let pinWrapWidth = pinWrap.offsetWidth;
+            let horizontalScrollLength = pinWrapWidth - window.innerWidth;
+
+            gsap.to('.pin-wrap', {
+                scrollTrigger: {
+                    scroller: pageContainer,
+                    scrub: true,
+                    trigger: '.section-pin',
+                    pin: true,
+                    // anticipatePin: 1,
+                    start: '50% 50%',
+                    end: pinWrapWidth
+                },
+                x: -horizontalScrollLength,
+                ease: 'none'
+            });
+            ScrollTrigger.addEventListener('refresh', () => scroller.update());
+            ScrollTrigger.refresh();
+
+
+            // main - skill section : mousehover effect
+            const skillBox = document.querySelectorAll('.skill-box');
+            skillBox.forEach(function (ele, idx) {
+                ele.addEventListener('mouseenter', function () {
+                    ele.children[0].children[1].children[0].style.opacity = 0;
+                    ele.children[0].children[1].children[1].style.opacity = 1;
+                });
+                ele.addEventListener('mouseleave', function () {
+                    ele.children[0].children[1].children[0].style.opacity = 1;
+                    ele.children[0].children[1].children[1].style.opacity = 0;
+                });
+            });
+
+
+
+
+
+
+
+
+
+
+
         },
 
 
 
 
         // small
-        "(max-width: 599px)": function () {
+        "(max-width: 499px)": function () {
             // The ScrollTriggers created inside these functions are segregated and get
             // reverted/killed when the media query doesn't match anymore. 
         },
@@ -338,6 +350,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     ele.style.backgroundColor = '#f0f0f2';
                 });
                 document.querySelector('.verti-line').style.backgroundColor = '#f0f0f2';
+                document.querySelectorAll('.util a').forEach(function (ele, idx) {
+                    ele.style.color = '#f0f0f2';
+                });
             }
 
             function menuClose() {
@@ -354,6 +369,9 @@ document.addEventListener('DOMContentLoaded', function () {
                         ele.style.backgroundColor = '#333';
                     });
                     document.querySelector('.verti-line').style.backgroundColor = '#333';
+                    document.querySelectorAll('.util a').forEach(function (ele, idx) {
+                        ele.style.color = '#333';
+                    });
                 }
             }
 
@@ -431,6 +449,75 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+            // main - intro circle
+            const introCircle = document.querySelector('.intro-circle');
+            const innerBg = introCircle.querySelector('.inner-bg');
+            const introCircleR = introCircle.clientWidth;
+
+            let introCircleCenter = {
+                x: document.querySelector('.intro-circle').clientLeft + introCircleR/2,
+                y: document.querySelector('.intro-circle').clientTop + introCircleR/2
+            };
+
+            console.log('중심' + introCircleCenter.x, introCircleCenter.y, document.querySelector('.intro-circle').clientLeft);
+
+            introCircle.addEventListener('mousemove', function (e) {
+                gsap.to(innerBg, 2, {
+                    x: (e.offsetX - introCircleCenter.x) * .6,
+                    y: (e.offsetY - introCircleCenter.y) * .6,
+                    scale: .9,
+                    ease: Elastic.easeOut.config(1.2, 0.7)
+                });
+
+                gsap.to(innerBg, 1, {
+                    filter: 'grayscale(0)',
+                });
+            });
+
+            introCircle.addEventListener('mouseleave', function () {
+                gsap.to(innerBg, 2, {
+                    x: 0,
+                    y: 0,
+                    scale: 1,
+                    ease: Elastic.easeOut.config(1.2, 0.7)
+                });
+
+                gsap.to(innerBg, 1, {
+                    filter: 'grayscale(1)',
+                });
+            });
+
+
+
+            // main - index circle
+            let indexCircle = document.querySelector('.index-circle');
+            let skillSecWid = document.querySelector('.section__skills').offsetWidth;
+
+            gsap.to(indexCircle, {
+                scrollTrigger: {
+                    scroller: pageContainer,
+                    trigger: '.section__skills',
+                    start: '30% bottom',
+                    end: '200vh',
+                    scrub: 0.1,
+                    onLeave: () => circleHide(),
+                    onEnterBack: () => circleShow(),
+                    // markers: true
+                },
+                ease: 'none',
+                scale: 10,
+            });
+
+            function circleHide() {
+                indexCircle.style.display = 'none';
+            }
+
+            function circleShow() {
+                indexCircle.style.display = 'block';
+            }
+
+
+
             // main - background color change
             let body = document.body;
             let expSectHei = document.querySelector('.section__experience').offsetHeight;
@@ -497,12 +584,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 document.querySelector('.verti-line').style.backgroundColor = menuColor;
                 document.querySelector('.prog-txt-rotate').style.fill = fontColor;
                 document.querySelector('.logo a').style.color = fontColor;
-
+                document.querySelectorAll('.util a').forEach(function (ele, idx) {
+                    ele.style.color = fontColor;
+                });
             }
 
 
-
-            // main - skill section : slide & mousehover effect
+            // main - skill section : slide
             var swiper2 = new Swiper('.skill-icons', {
                 effect: 'fade',
                 fadeEffect: {
@@ -514,19 +602,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     disableOnInteraction: false,
                 },
                 speed: 800,
-                loop: true
-            });
-
-            const skillBox = document.querySelectorAll('.skill-box');
-            skillBox.forEach(function (ele, idx) {
-                ele.addEventListener('mouseenter', function () {
-                    ele.children[0].children[1].children[0].style.opacity = 0;
-                    ele.children[0].children[1].children[1].style.opacity = 1;
-                });
-                ele.addEventListener('mouseleave', function () {
-                    ele.children[0].children[1].children[0].style.opacity = 1;
-                    ele.children[0].children[1].children[1].style.opacity = 0;
-                });
+                loop: true,
+                allowTouchMove: false
             });
 
 

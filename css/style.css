@@ -113,7 +113,7 @@ body {
 
 .blank40 {
     display: inline-block;
-    width: 40px;
+    width: 4rem;
 }
 
 
@@ -443,7 +443,7 @@ body {
 /* Main - intro */
 .section__intro {
     height: 100vh;
-    max-height: 1080px;
+    max-height: 1180px;
     min-height: 768px;
 }
 
@@ -765,8 +765,17 @@ body {
 
 
 /* Main - skills */
+.section__skills {
+    position: relative;
+    z-index: 10;
+}
+
 .section__skills .section-tit {
     width: 400px;
+}
+
+.section__skills .scroll-desc {
+    display: none;
 }
 
 .section-pin {
@@ -809,6 +818,13 @@ body {
 
 .skill-box:nth-child(even) > div {
     background: #232323;
+}
+
+.skill-box .rotate-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .skill-box .rotate-skill-name {
@@ -1342,6 +1358,11 @@ footer .copyright span {
         top: 70%;
     }
 
+    .section__intro .intro-title {
+        left: 18rem;
+        transform: translate(0, -50%);
+    }
+
     .txt-fill {height: 8rem;}
     .txt-fill span {
         height: 8rem;
@@ -1377,9 +1398,346 @@ footer .copyright span {
 
 
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 960px) {
 
-    html {font-size: 8px;}
+    /* menu */
+    #menu {
+        width: 100px;
+        height: 100px;
+    }
+    .verti-line {display: none;}
+    #gnb {
+        padding: 0;
+    }
 
+
+    .util {
+        bottom: auto;
+        top: 33px;
+        left: -130px;
+        display: flex;
+
+    }
+    .util a {
+        transform: rotate(0) scale(1);
+        margin-bottom: 0;
+        margin-left: 40px;
+        width: auto;
+        height: auto;
+        padding: 7px;
+    }
+    .util a:hover {transform: rotate(0) scale(1);}
+    .util a.link-github,
+    .util a.link-tistory {
+        background: none;
+        margin-bottom: 0;
+    }
+    .util a span {
+        display: block;
+        font-size: 1.8rem;
+        font-family: 'Poppins', sans-serif;
+        position: relative;
+    }
+    .util a span:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: -.4em;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: #f32942;
+        z-index: -1;
+    }
+
+
+
+    /* main */
+    .section {padding: 8rem 40px 8rem 40px;}
+    .section.section__index {padding: 0 40px 0 40px;}
+
+
+    /* footer */
+    footer {padding: 40px;}
+
+}
+
+
+
+@media screen and (max-width: 960px) and (orientation: portrait) {
+
+    /* main - intro */
+    .section__intro .intro-title {left: 14rem;}
+
+}
+
+
+@media screen and (max-width: 768px) and (orientation: portrait) {
+
+
+}
+
+
+
+@media screen and (max-width: 500px) {
+
+    /* font size */
+    html {font-size: 9px;}
+
+
+    /* menu  */
+    #menu {
+        width: 80px;
+        height: 80px;
+    }
+    #gnb {
+        width: 300px;
+    }
+    .util {
+        top: 25px;
+        left: -80px;
+    }
+    .util a {margin-left: 20px;}
+    .util a span {font-size: 13px;}
+
+
+    /* Main */
+    .section {padding: 6rem 24px 6rem 24px;}
+    .section.section__index {padding: 6rem 24px 6rem 24px;}
+
+    .section-tit {font-size: 5rem;}
+
+
+    /* Main - intro */
+    .section__intro .intro-title {
+        left: 40px;
+        width: 100%;
+    }
+
+    .txt-fill {height: 6rem;}
+    .txt-fill span {
+        height: 6rem;
+        font-size: 4rem; 
+        line-height: 6rem;
+        min-width: 1.2rem;
+    }
+    @keyframes fillUp {
+        0% {height: 0;}
+        100% {height: 6rem;}
+    }
+
+    .section__intro .intro-circle {
+        width: 180px;
+        height: 180px;
+        top: auto;
+        bottom: 3%;
+        right: 10%;
+    }
+
+    .intro-deco:before {
+        width: 84vw;
+        height: 84vw;
+    }
+
+    .section__intro .deco-rotate-txt svg {
+        width: 60rem;
+        height: 60rem;
+    }
+
+    .section__intro .deco-scroll {
+        top: 25%;
+        transform: translate(-36%, -50%) rotate(90deg);
+        font-size: 11px;
+    }
+
+
+    /* Main - index */
+    .section__index .index-greeting {
+        width: 100%;
+        margin: 0 0 6rem;
+        padding: 0 10px;
+        text-align: center;
+    }
+
+    .section__index .index-greeting p {
+        font-size: 1.8rem;
+        padding: 20px 0;
+    }
+
+    .section__index .index-list {
+        width: 92%;
+        margin: 0 auto;
+    }
+    .section__index .index-list li a {
+        font-size: 2.2rem;
+        padding-left: 0;
+    }
+    .section__index .index-list li a:hover, 
+    .section__index .index-list li a:focus {color: #333;}
+    .section__index .index-list li a p {display: none;}
+
+    .section__index .index-list li a:before {
+        left: 0;
+        width: 100%;
+    }
+    .section__index .index-list li a:hover:before {
+        left: 0;
+        background: #333;
+    }
+
+
+    /* Main - skills */
+    .section.section__skills {padding: 6rem 0;}
+    .section__skills .section-tit {
+        width: auto;
+        margin-right: 40px;
+    }
+    .section__skills .scroll-desc {
+        display: block;
+        position: absolute;
+        top: 140px;
+        left: 30px;
+        color: #bebebe;
+        font-weight: 100;
+    }
+    .section__skills .scroll-desc:before,
+    .section__skills .scroll-desc:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        transform: translate(0,-50%);
+        border-left: 0.6em solid #bebebe;
+        border-top: 0.3em solid transparent;
+        border-bottom: 0.3em solid transparent;
+        animation: twinkleArr 1.6s infinite ease-in-out;
+
+    }
+    .section__skills .scroll-desc:before {
+        right: -1.5em;
+    }
+    .section__skills .scroll-desc:after {
+        right: -2.4em;
+        animation-delay: 0.4s;
+    }
+    @keyframes twinkleArr {
+        0% {opacity: 1;}
+        55% {opacity: 0;}
+        100% {opacity: 1;}
+    }
+    .pin-wrap {
+        height: 640px;
+        padding: 0 30px;
+        overflow-x: auto;
+    }
+    .skill-box {
+        width: 380px;
+        height: 380px;
+    }
+    .skill-box .rotate-skill-name {
+        width: 400px;
+        height: 400px;
+    }
+    .skill-box .skill-box-inner {
+        width: 240px;
+        height: 240px;
+    }
+    .skill-box .skill-box-inner .icon-area,
+    .skill-box .skill-box-inner .icon-area .skill-icons .swiper-slide {
+        width: 180px;
+        height: 180px;
+    }
+    .skill-box .skill-box-inner .hover-text {
+        opacity: 1;
+        top: 120%;
+        transform: translate(-50%, 0);
+        width: 300px;
+        height: auto;
+
+    }
+    .skill-box .skill-box-inner .hover-text p:first-child {display: none;}
+    .skill-box .skill-box-inner .hover-text p + p {
+        font-size: 1.7rem;
+        font-weight: 400;
+        line-height: 1.6;
+    }
+    .skill-box .skill-box-inner .hover-text p + p span {margin-left: 1em;}
+
+
+
+
+    /* Main - experience */
+    .exp-list > li {display: block;}
+    .exp-list > li .exp-summary {
+        width: 100%;
+        background: rgba(180, 180, 180, .1);
+        padding: 20px;
+    }
+    .exp-list > li .exp-summary .exp-term,
+    .exp-list > li .exp-summary .exp-desc {
+        width: 100%;
+        padding-right: 1em;
+    }
+    .exp-list > li .exp-desc p {margin-bottom: 2rem;}
+    .exp-list > li .exp-pofol {width: 100%;}
+    .exp-pofol {transform: translate(0, 0);}
+    .exp-pofol > li {
+        min-height: auto;    
+        padding: 20px 10px;
+    }
+    .exp-pofol > li .view-more {
+        top: 10px;
+        right: 0;
+        width: 4rem;
+        height: 4rem;
+        transform: translate(0, 0) scale(1);
+    }
+    .exp-pofol > li:hover .view-more {
+        transform: translate(0, 0) scale(1);
+    }
+    .exp-pofol > li .bg-area {display: none;}
+
+
+    /* Main - about */
+    .section__about {margin-bottom: 7rem;}
+    .section__about .about-box {
+        height: auto;
+        min-height: auto;
+        padding: 40px 20px;
+    }
+    .about-things li {
+        position: relative;
+        margin: 40px auto;
+    }
+    .about-things li:first-child {margin-top: 0;}
+    .about-things li:last-child {margin-bottom: 0;}
+    .about-things li:nth-child(3) {margin-bottom: 240px;}
+    .about-things li span {background: rgba(255, 255, 255, .4);}
+    .about-things li div {
+        width: 50px;
+        height: 50px;
+        opacity: .1;
+    }
+
+
+    /* Main - contact */
+    .section__contact h2 {font-size: 3rem;}
+    .section__contact p {font-size: 2.2rem;}
+
+
+    /* footer */
+    footer {font-size: 1.7rem;}
+
+
+
+
+
+}
+
+
+
+@media screen and (max-width: 360px) {
+
+    /* font size */
+    html {font-size: 8.5px;}
 
 }
