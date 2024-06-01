@@ -1,258 +1,339 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello, I am SOHI!</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Hello, I am SOHI!</title>
 
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lusitana:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+        <!-- Google Font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Lusitana:wght@400;700&display=swap" rel="stylesheet" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+            rel="stylesheet"
+        />
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="vendor/locomotive-scroll/locomotive-scroll.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
-    <!-- <link rel="stylesheet" href="vendor/swiper/swiper-bundle.min.css"> -->
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <header id="header">
-        <h1 class="logo">
-            <a href="https://hihisohi.github.io/resume2022/">SOHI</a>
-        </h1>
-    </header>
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/reset.css" />
+        <link rel="stylesheet" href="vendor/locomotive-scroll/locomotive-scroll.min.css" />
+        <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+        <!-- <link rel="stylesheet" href="vendor/swiper/swiper-bundle.min.css"> -->
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body>
+        <header id="header">
+            <h1 class="logo">
+                <a href="https://hihisohi.github.io/resume2022/">SOHI</a>
+            </h1>
+        </header>
 
-    <div id="menu">
-        <div class="menu-wrap">
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-            </div>
-            <nav id="gnb">
-                <ul>
-                    <li><a href="#intro">Intro</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="util">
-                <a class="link-github" href="https://github.com/hihisohi" target="_blank"><span>Github</span></a>
-                <a class="link-tistory" href=""><span>Blog</span></a>
-            </div>
-            <div class="verti-line"></div>
-        </div>
-    </div>
-
-    <div class="progress-icon">
-        <div class="prog-fill-outer">
-            <div class="prog-fill"></div>
-        </div>
-        <div class="prog-txt"></div>
-        <svg viewBox="0 0 150 150">
-            <path id="textCurve"  d="M 75 75 m -50, 0 a 50, 50 0 1, 1 100, 0 a 50, 50 0 1, 1 -100, 0" />
-            <text class="prog-txt-rotate">
-                <textPath xlink:href="#textCurve" style="font-family: 'Poppins', sans-serif;">SCROLL TO EXPLORE •</textPath>
-            </text>
-        </svg>
-    </div>
-
-    <div data-scroll-container class="wrapper">
-        <div id="intro" class="section__intro">
-            <div class="container">
-                <div class="intro-title">
-                    <span class="lusitana" data-scroll data-scroll-direction="horizontal" data-scroll-speed="2">Hello,</span>
-                    <span class="lusitana" data-scroll data-scroll-direction="horizontal" data-scroll-speed="-1">I’m SoHi JuNG  : )</span>
+        <div id="menu">
+            <div class="menu-wrap">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
                 </div>
-                <div class="intro-circle interact-circle" data-scroll data-scroll-speed="-3">
-                    <div class="inner-bg"></div>
+                <nav id="gnb">
+                    <ul>
+                        <li><a href="#intro">Intro</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="util">
+                    <a class="link-github" href="https://github.com/hihisohi" target="_blank"><span>Github</span></a>
+                    <a class="link-tistory" href=""><span>Blog</span></a>
                 </div>
-                <div class="intro-deco">
-                    <div class="deco-rotate-txt">
-                        <svg viewBox="0 0 150 150">
-                            <path id="textCurve"  d="M 75 75 m -50, 0 a 50, 50 0 1, 1 100, 0 a 50, 50 0 1, 1 -100, 0" />
-                            <text>
-                                <textPath xlink:href="#textCurve">WEB PUBLISHER & WEB DEVELOPER &</textPath>
-                            </text>
-                        </svg>
+                <div class="verti-line"></div>
+            </div>
+        </div>
+
+        <div class="progress-icon">
+            <div class="prog-fill-outer">
+                <div class="prog-fill"></div>
+            </div>
+            <div class="prog-txt"></div>
+            <svg viewBox="0 0 150 150">
+                <path id="textCurve" d="M 75 75 m -50, 0 a 50, 50 0 1, 1 100, 0 a 50, 50 0 1, 1 -100, 0" />
+                <text class="prog-txt-rotate">
+                    <textPath xlink:href="#textCurve" style="font-family: 'Poppins', sans-serif">
+                        SCROLL TO EXPLORE •
+                    </textPath>
+                </text>
+            </svg>
+        </div>
+
+        <div data-scroll-container class="wrapper">
+            <div id="intro" class="section__intro">
+                <div class="container">
+                    <div class="intro-title">
+                        <span class="lusitana" data-scroll data-scroll-direction="horizontal" data-scroll-speed="2"
+                            >Hello,</span
+                        >
+                        <span class="lusitana" data-scroll data-scroll-direction="horizontal" data-scroll-speed="-1"
+                            >I’m SoHi JuNG : )</span
+                        >
                     </div>
-                    <span class="deco-scroll">SOHI'S PORTFOLIO</span>
+                    <div class="intro-circle interact-circle" data-scroll data-scroll-speed="-3">
+                        <div class="inner-bg"></div>
+                    </div>
+                    <div class="intro-deco">
+                        <div class="deco-rotate-txt">
+                            <svg viewBox="0 0 150 150">
+                                <path
+                                    id="textCurve"
+                                    d="M 75 75 m -50, 0 a 50, 50 0 1, 1 100, 0 a 50, 50 0 1, 1 -100, 0"
+                                />
+                                <text>
+                                    <textPath xlink:href="#textCurve">WEB PUBLISHER & WEB DEVELOPER &</textPath>
+                                </text>
+                            </svg>
+                        </div>
+                        <span class="deco-scroll">SOHI'S PORTFOLIO</span>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- // END section__intro -->
+            <!-- // END section__intro -->
 
-        <div id="index" class="section section__index">
-            <div class="container dp-f">
-                <div class="index-circle interact-circle"></div>
-                <div class="index-greeting dp-f jcc col">
-                    <p data-scroll data-scroll-direction="horizontal" data-scroll-speed="1">안녕하세요 <span class="emoji emoji-updown">🙋</span></p>
-                    <p data-scroll data-scroll-direction="horizontal" data-scroll-speed="2">신<span class="emoji emoji-rotate">🐣</span>입 개발자 정소희입니다</p>
-                    <p data-scroll data-scroll-direction="horizontal" data-scroll-speed="3">잘 부탁드립니다 <span class="emoji emoji-scale">👏</span></p>
+            <div id="index" class="section section__index">
+                <div class="container dp-f">
+                    <div class="index-circle interact-circle"></div>
+                    <div class="index-greeting dp-f jcc col">
+                        <p data-scroll data-scroll-direction="horizontal" data-scroll-speed="1">
+                            안녕하세요 <span class="emoji emoji-updown">🙋</span>
+                        </p>
+                        <p data-scroll data-scroll-direction="horizontal" data-scroll-speed="2">
+                            신<span class="emoji emoji-rotate">🐣</span>입 개발자 정소희입니다
+                        </p>
+                        <p data-scroll data-scroll-direction="horizontal" data-scroll-speed="3">
+                            잘 부탁드립니다 <span class="emoji emoji-scale">👏</span>
+                        </p>
+                    </div>
+                    <ul class="index-list">
+                        <li>
+                            <a href="#skills" data-scroll-to="#skills">
+                                01<span class="blank40"></span>SKILLS
+                                <p>저는 이런걸 할 줄 압니다</p>
+                                <span class="icon-arr">&darr;</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#experience" data-scroll-to="#experience">
+                                03<span class="blank40"></span>EXPERIENCE
+                                <p>저는 이런걸 해왔습니다</p>
+                                <span class="icon-arr">&darr;</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#about" data-scroll-to="#about">
+                                02<span class="blank40"></span>ABOUT
+                                <p>저는 이런 사람입니다</p>
+                                <span class="icon-arr">&darr;</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#contact" data-scroll-to="#contact">
+                                04<span class="blank40"></span>CONTACT
+                                <p>잘 부탁드립니다</p>
+                                <span class="icon-arr">&darr;</span>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-                <ul class="index-list">
-                    <li>
-                        <a href="#skills" data-scroll-to="#skills">
-                            01<span class="blank40"></span>SKILLS
-                            <p>저는 이런걸 할 줄 압니다</p>
-                            <span class="icon-arr">&darr;</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#experience" data-scroll-to="#experience">
-                            03<span class="blank40"></span>EXPERIENCE
-                            <p>저는 이런걸 해왔습니다</p>
-                            <span class="icon-arr">&darr;</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#about" data-scroll-to="#about">
-                            02<span class="blank40"></span>ABOUT
-                            <p>저는 이런 사람입니다</p>
-                            <span class="icon-arr">&darr;</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#contact" data-scroll-to="#contact">
-                            04<span class="blank40"></span>CONTACT
-                            <p>잘 부탁드립니다</p>
-                            <span class="icon-arr">&darr;</span>
-                        </a>
-                    </li>
-                </ul>
             </div>
-        </div>
-        <!-- // END section__index -->
+            <!-- // END section__index -->
 
-        <div id="skills" class="section section__skills section-pin">
-            <span class="scroll-desc">Slide to check the skills</span>
-            <div class="pin-wrap">
-                <h2 class="section-tit lusitana">Skills</h2>
-                <ul class="skill-list">
-                    <li class="skill-box">
-                        <div>
-                            <div class="rotate-text">
-                                <svg class="rotate-skill-name" viewBox="0 0 660 660" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                    <defs>
-                                        <path id="skillNameCircle" d="M 330 330 m -250, 0 a 250, 250 0 1, 1 500, 0 a 250, 250 0 1, 1 -500, 0"></path>
-                                    </defs>
-                                    <text>
-                                        <textPath xlink:href="#skillNameCircle" class="skill-name">Programming Language</textPath>
-                                    </text>
-                                </svg>
-                            </div>
-                            <div class="skill-box-inner">
-                                <div class="icon-area">
-                                    <div class="swiper skill-icons">
-                                        <div class="swiper-wrapper">
-                                          <div class="swiper-slide"><img src="img/icon_java.png" alt=""></div>
-                                          <div class="swiper-slide"><img src="img/icon_html.png" alt=""></div>
-                                          <div class="swiper-slide"><img src="img/icon_css.png" alt=""></div>
-                                          <div class="swiper-slide"><img src="img/icon_js.png" alt=""></div>
-                                        </div>
-                                      </div>
+            <div id="skills" class="section section__skills section-pin">
+                <span class="scroll-desc">Slide to check the skills</span>
+                <div class="pin-wrap">
+                    <h2 class="section-tit lusitana">Skills</h2>
+                    <ul class="skill-list">
+                        <li class="skill-box">
+                            <div>
+                                <div class="rotate-text">
+                                    <svg
+                                        class="rotate-skill-name"
+                                        viewBox="0 0 660 660"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    >
+                                        <defs>
+                                            <path
+                                                id="skillNameCircle"
+                                                d="M 330 330 m -250, 0 a 250, 250 0 1, 1 500, 0 a 250, 250 0 1, 1 -500, 0"
+                                            ></path>
+                                        </defs>
+                                        <text>
+                                            <textPath xlink:href="#skillNameCircle" class="skill-name">
+                                                Programming Language
+                                            </textPath>
+                                        </text>
+                                    </svg>
                                 </div>
-                                <div class="hover-text">
-                                    <p>i can do it :</p>
-                                    <p><span>Java 50%,</span><span>JavaScript 65%,</span><span>HTML 80%,</span><span>CSS 80%</span></p>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="skill-box">
-                        <div>
-                            <div class="rotate-text">
-                                <svg class="rotate-skill-name" viewBox="0 0 660 660" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                    <defs>
-                                        <path id="skillNameCircle" d="M 330 330 m -250, 0 a 250, 250 0 1, 1 500, 0 a 250, 250 0 1, 1 -500, 0"></path>
-                                    </defs>
-                                    <text>
-                                        <textPath xlink:href="#skillNameCircle" class="skill-name">Framework / Library</textPath>
-                                    </text>
-                                </svg>
-                            </div>
-                            <div class="skill-box-inner">
-                                <div class="icon-area">
-                                    <div class="swiper skill-icons">
-                                        <div class="swiper-wrapper">
-                                          <div class="swiper-slide"><img src="img/icon_spring.png" alt="" class="img-horiz"></div>
-                                          <div class="swiper-slide"><img src="img/icon_jquery.png" alt="" class="img-horiz"></div>
-                                          <div class="swiper-slide"><img src="img/icon_bootstrap.png" alt=""></div>
+                                <div class="skill-box-inner">
+                                    <div class="icon-area">
+                                        <div class="swiper skill-icons">
+                                            <div class="swiper-wrapper">
+                                                <div class="swiper-slide"><img src="img/icon_java.png" alt="" /></div>
+                                                <div class="swiper-slide"><img src="img/icon_html.png" alt="" /></div>
+                                                <div class="swiper-slide"><img src="img/icon_css.png" alt="" /></div>
+                                                <div class="swiper-slide"><img src="img/icon_js.png" alt="" /></div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="hover-text">
-                                    <p>i can do it :</p>
-                                    <p><span>Spring 50%,</span><span>jQuery 80%,</span><span>Bootstrap 80%</span></p>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="skill-box">
-                        <div>
-                            <div class="rotate-text">
-                                <svg class="rotate-skill-name" viewBox="0 0 660 660" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                    <defs>
-                                        <path id="skillNameCircle" d="M 330 330 m -250, 0 a 250, 250 0 1, 1 500, 0 a 250, 250 0 1, 1 -500, 0"></path>
-                                    </defs>
-                                    <text>
-                                        <textPath xlink:href="#skillNameCircle" class="skill-name">Server</textPath>
-                                    </text>
-                                </svg>
-                            </div>
-                            <div class="skill-box-inner">
-                                <div class="icon-area">
-                                    <div class="swiper skill-icons">
-                                        <div class="swiper-wrapper">
-                                          <div class="swiper-slide"><img src="img/icon_mysql.png" alt=""></div>
-                                          <div class="swiper-slide"><img src="img/icon_oracle.png" alt="" class="img-horiz"></div>
-                                          <div class="swiper-slide"><img src="img/icon_tomcat.png" alt=""></div>
-                                        </div>
+                                    <div class="hover-text">
+                                        <p>i can do it :</p>
+                                        <p>
+                                            <span>Java 50%,</span><span>JavaScript 65%,</span><span>HTML 80%,</span
+                                            ><span>CSS 80%</span>
+                                        </p>
                                     </div>
                                 </div>
-                                <div class="hover-text">
-                                    <p>i can do it :</p>
-                                    <p><span>MySQL,</span><span>Oracle,</span><span>Apache,</span><span>Tomcat</span></p>  
+                            </div>
+                        </li>
+                        <li class="skill-box">
+                            <div>
+                                <div class="rotate-text">
+                                    <svg
+                                        class="rotate-skill-name"
+                                        viewBox="0 0 660 660"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    >
+                                        <defs>
+                                            <path
+                                                id="skillNameCircle"
+                                                d="M 330 330 m -250, 0 a 250, 250 0 1, 1 500, 0 a 250, 250 0 1, 1 -500, 0"
+                                            ></path>
+                                        </defs>
+                                        <text>
+                                            <textPath xlink:href="#skillNameCircle" class="skill-name">
+                                                Framework / Library
+                                            </textPath>
+                                        </text>
+                                    </svg>
                                 </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="skill-box">
-                        <div>
-                            <div class="rotate-text">
-                                <svg class="rotate-skill-name" viewBox="0 0 660 660" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                    <defs>
-                                        <path id="skillNameCircle" d="M 330 330 m -250, 0 a 250, 250 0 1, 1 500, 0 a 250, 250 0 1, 1 -500, 0"></path>
-                                    </defs>
-                                    <text>
-                                        <textPath xlink:href="#skillNameCircle" class="skill-name">Toolling / DevOps</textPath>
-                                    </text>
-                                </svg>
-                            </div>
-                            <div class="skill-box-inner">
-                                <div class="icon-area">
-                                    <div class="swiper skill-icons">
-                                        <div class="swiper-wrapper">
-                                          <div class="swiper-slide"><img src="img/icon_docker.png" alt="" class="img-horiz"></div>
-                                          <div class="swiper-slide"><img src="img/icon_github.png" alt=""></div>
-                                          <div class="swiper-slide"><img src="img/icon_maven.png" alt="" class="img-horiz"></div>
+                                <div class="skill-box-inner">
+                                    <div class="icon-area">
+                                        <div class="swiper skill-icons">
+                                            <div class="swiper-wrapper">
+                                                <div class="swiper-slide">
+                                                    <img src="img/icon_spring.png" alt="" class="img-horiz" />
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <img src="img/icon_jquery.png" alt="" class="img-horiz" />
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <img src="img/icon_bootstrap.png" alt="" />
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="hover-text">
-                                    <p>i can do it :</p>
-                                    <p><span>Docker,</span><span>Git,</span><span>Github,</span><span>Maven</span></p>  
+                                    <div class="hover-text">
+                                        <p>i can do it :</p>
+                                        <p>
+                                            <span>Spring 50%,</span><span>jQuery 80%,</span><span>Bootstrap 80%</span>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </li>
-                    <!-- <li class="skill-box">
+                        </li>
+                        <li class="skill-box">
+                            <div>
+                                <div class="rotate-text">
+                                    <svg
+                                        class="rotate-skill-name"
+                                        viewBox="0 0 660 660"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    >
+                                        <defs>
+                                            <path
+                                                id="skillNameCircle"
+                                                d="M 330 330 m -250, 0 a 250, 250 0 1, 1 500, 0 a 250, 250 0 1, 1 -500, 0"
+                                            ></path>
+                                        </defs>
+                                        <text>
+                                            <textPath xlink:href="#skillNameCircle" class="skill-name">Server</textPath>
+                                        </text>
+                                    </svg>
+                                </div>
+                                <div class="skill-box-inner">
+                                    <div class="icon-area">
+                                        <div class="swiper skill-icons">
+                                            <div class="swiper-wrapper">
+                                                <div class="swiper-slide"><img src="img/icon_mysql.png" alt="" /></div>
+                                                <div class="swiper-slide">
+                                                    <img src="img/icon_oracle.png" alt="" class="img-horiz" />
+                                                </div>
+                                                <div class="swiper-slide"><img src="img/icon_tomcat.png" alt="" /></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="hover-text">
+                                        <p>i can do it :</p>
+                                        <p>
+                                            <span>MySQL,</span><span>Oracle,</span><span>Apache,</span
+                                            ><span>Tomcat</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="skill-box">
+                            <div>
+                                <div class="rotate-text">
+                                    <svg
+                                        class="rotate-skill-name"
+                                        viewBox="0 0 660 660"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    >
+                                        <defs>
+                                            <path
+                                                id="skillNameCircle"
+                                                d="M 330 330 m -250, 0 a 250, 250 0 1, 1 500, 0 a 250, 250 0 1, 1 -500, 0"
+                                            ></path>
+                                        </defs>
+                                        <text>
+                                            <textPath xlink:href="#skillNameCircle" class="skill-name">
+                                                Toolling / DevOps
+                                            </textPath>
+                                        </text>
+                                    </svg>
+                                </div>
+                                <div class="skill-box-inner">
+                                    <div class="icon-area">
+                                        <div class="swiper skill-icons">
+                                            <div class="swiper-wrapper">
+                                                <div class="swiper-slide">
+                                                    <img src="img/icon_docker.png" alt="" class="img-horiz" />
+                                                </div>
+                                                <div class="swiper-slide"><img src="img/icon_github.png" alt="" /></div>
+                                                <div class="swiper-slide">
+                                                    <img src="img/icon_maven.png" alt="" class="img-horiz" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="hover-text">
+                                        <p>i can do it :</p>
+                                        <p>
+                                            <span>Docker,</span><span>Git,</span><span>Github,</span><span>Maven</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- <li class="skill-box">
                         <div>
                             <div class="rotate-text">
                                 <svg class="rotate-skill-name" viewBox="0 0 660 660" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -280,211 +361,273 @@
                             </div>
                         </div>
                     </li> -->
-                    <li class="skill-box">
-                        <div>
-                            <div class="rotate-text">
-                                <svg class="rotate-skill-name" viewBox="0 0 660 660" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                    <defs>
-                                        <path id="skillNameCircle" d="M 330 330 m -250, 0 a 250, 250 0 1, 1 500, 0 a 250, 250 0 1, 1 -500, 0"></path>
-                                    </defs>
-                                    <text>
-                                        <textPath xlink:href="#skillNameCircle" class="skill-name">Design</textPath>
-                                    </text>
-                                </svg>
-                            </div>
-                            <div class="skill-box-inner">
-                                <div class="icon-area">
-                                    <div class="swiper skill-icons">
-                                        <div class="swiper-wrapper">
-                                          <div class="swiper-slide"><img src="img/icon_ps.png" alt=""></div>
-                                          <div class="swiper-slide"><img src="img/icon_ai.png" alt=""></div>
-                                          <div class="swiper-slide"><img src="img/icon_xd.png" alt=""></div>
-                                          <div class="swiper-slide"><img src="img/icon_zeplin.png" alt=""></div>
+                        <li class="skill-box">
+                            <div>
+                                <div class="rotate-text">
+                                    <svg
+                                        class="rotate-skill-name"
+                                        viewBox="0 0 660 660"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    >
+                                        <defs>
+                                            <path
+                                                id="skillNameCircle"
+                                                d="M 330 330 m -250, 0 a 250, 250 0 1, 1 500, 0 a 250, 250 0 1, 1 -500, 0"
+                                            ></path>
+                                        </defs>
+                                        <text>
+                                            <textPath xlink:href="#skillNameCircle" class="skill-name">Design</textPath>
+                                        </text>
+                                    </svg>
+                                </div>
+                                <div class="skill-box-inner">
+                                    <div class="icon-area">
+                                        <div class="swiper skill-icons">
+                                            <div class="swiper-wrapper">
+                                                <div class="swiper-slide"><img src="img/icon_ps.png" alt="" /></div>
+                                                <div class="swiper-slide"><img src="img/icon_ai.png" alt="" /></div>
+                                                <div class="swiper-slide"><img src="img/icon_xd.png" alt="" /></div>
+                                                <div class="swiper-slide"><img src="img/icon_zeplin.png" alt="" /></div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="hover-text">
-                                    <p>i can do it :</p>
-                                    <p><span>Photoshop,</span><span>Illustrator,</span><span>Abode XD,</span><span>Zeplin</span></p>
+                                    <div class="hover-text">
+                                        <p>i can do it :</p>
+                                        <p>
+                                            <span>Photoshop,</span><span>Illustrator,</span><span>Abode XD,</span
+                                            ><span>Zeplin</span>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </li>
-                </ul>
-                <!-- <div class="skill-desc">
+                        </li>
+                    </ul>
+                    <!-- <div class="skill-desc">
                     <p><span></span> : I've used it before.</p>
                     <p><span></span> : Only theoretical knowledge.</p>
                 </div> -->
+                </div>
             </div>
-        </div>
-        <!-- // END section__skills -->
+            <!-- // END section__skills -->
 
-        <div id="experience" class="section section__experience">
-            <div class="container">
-                <h2 class="section-tit lusitana ta-c">Experience</h2>
-                <ul class="exp-list">
-                    <li class="exp__be">
-                        <div class="exp-summary">
-                            <div class="exp-term poppins">2021.06<span>-</span>2021.11</div>
-                            <div class="exp-desc">
-                                <p>THEJOEUN ACADEMY</p>
-                                <strong>가상화 솔루션(Docker)과 클라우드(AWS) 서비스 기반 웹&앱 개발자 양성</strong>
-                                <div class="exp-tag"><span>#백엔드개발스킬습득</span><span>#java</span><span>#spring</span><span>#sql</span><span>#docker</span></div>
+            <div id="experience" class="section section__experience">
+                <div class="container">
+                    <h2 class="section-tit lusitana ta-c">Experience</h2>
+                    <ul class="exp-list">
+                        <li class="exp__be">
+                            <div class="exp-summary">
+                                <div class="exp-term poppins">2021.06<span>-</span>2021.11</div>
+                                <div class="exp-desc">
+                                    <p>THEJOEUN ACADEMY</p>
+                                    <strong>가상화 솔루션(Docker)과 클라우드(AWS) 서비스 기반 웹&앱 개발자 양성</strong>
+                                    <div class="exp-tag">
+                                        <span>#백엔드개발스킬습득</span><span>#java</span><span>#spring</span
+                                        ><span>#sql</span><span>#docker</span>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <ul class="exp-pofol">
-                            <li>
-                                <div class="bg-area be03"></div>
-                                <div class="txt-area">
-                                    <strong><span>final project</span>THERE</strong>
-                                    <ul class="quick-btns">
-                                        <li><a href="https://github.com/hihisohi/there" target="_blank">GitHub</a></li>
-                                        <li><a href="https://github.com/hihisohi/there_submit" target="_blank">프로젝트 산출물(문서)</a></li>
-                                    </ul>
-                                    <p>서울의 핫플레이스를 추천 및 플레이스 정보를 공유하는 매거진 플랫폼</p>
-                                    <p><span class="emoji">⚙️</span> 개발언어/환경 : JAVA, SPRING, MYSQL, DOCKER</p>
+                            <ul class="exp-pofol">
+                                <li>
+                                    <div class="bg-area be03"></div>
+                                    <div class="txt-area">
+                                        <strong><span>final project</span>THERE</strong>
+                                        <ul class="quick-btns">
+                                            <li>
+                                                <a href="https://github.com/hihisohi/there" target="_blank">GitHub</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://github.com/hihisohi/there_submit" target="_blank"
+                                                    >프로젝트 산출물(문서)</a
+                                                >
+                                            </li>
+                                        </ul>
+                                        <p>서울의 핫플레이스를 추천 및 플레이스 정보를 공유하는 매거진 플랫폼</p>
+                                        <p><span class="emoji">⚙️</span> 개발언어/환경 : JAVA, SPRING, MYSQL, DOCKER</p>
+                                    </div>
+                                    <a
+                                        class="view-more"
+                                        href="https://docs.google.com/viewer?url=https://github.com/hihisohi/resume2022/blob/main/ppt_there.pdf?raw=T"
+                                        target="_blank"
+                                        >+</a
+                                    >
+                                </li>
+                                <li>
+                                    <div class="bg-area be02"></div>
+                                    <div class="txt-area">
+                                        <strong><span>2nd project</span>THEJOEUN LMS SYSTEM</strong>
+                                        <ul class="quick-btns">
+                                            <li>
+                                                <a href="https://github.com/hihisohi/tjoeun_lms_project" target="_blank"
+                                                    >GitHub</a
+                                                >
+                                            </li>
+                                            <li>
+                                                <a href="https://github.com/hihisohi/tjoeun_lms_submit" target="_blank"
+                                                    >프로젝트 산출물(문서)</a
+                                                >
+                                            </li>
+                                        </ul>
+                                        <p>
+                                            '더조은아카데미 신규지점 LMS시스템 개발'이라는 가상의 의뢰를 기반으로 작업한
+                                            과제물
+                                        </p>
+                                        <p><span class="emoji">⚙️</span> 개발언어/환경 : JAVA, MVC, ORACLE, DOCKER</p>
+                                    </div>
+                                    <a
+                                        class="view-more"
+                                        href="https://docs.google.com/viewer?url=https://github.com/hihisohi/resume2022/blob/main/ppt_lms.pdf?raw=T"
+                                        target="_blank"
+                                        >+</a
+                                    >
+                                </li>
+                                <li>
+                                    <div class="bg-area be01"></div>
+                                    <div class="txt-area">
+                                        <strong><span>1st project</span>HIZZERIA KIOSK</strong>
+                                        <ul class="quick-btns">
+                                            <li>
+                                                <a
+                                                    href="https://docs.google.com/viewer?url=https://github.com/hihisohi/resume2022/blob/main/ppt_kiosk.pdf?raw=T"
+                                                    target="_blank"
+                                                    >PPT</a
+                                                >
+                                            </li>
+                                        </ul>
+                                        <p>소켓(Socket)통신을 이용한 피자가게 키오스크 구현</p>
+                                        <p><span class="emoji">⚙️</span> 개발언어/환경 : JAVA</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="exp__ptl">
+                            <div class="exp-summary">
+                                <div class="exp-term poppins">2019.12<span>-</span>2021.05</div>
+                                <div class="exp-desc">
+                                    <p>FINEAPPLE PTL</p>
+                                    <strong>디자인팀 웹퍼블리셔 근무</strong>
+                                    <div class="exp-tag">
+                                        <span>#퍼블리싱</span><span>#다양한 홈페이지 제작 경험</span><span>#xe</span
+                                        ><span>#wordpress</span><span>#gnuborad</span><span>#웹기획</span>
+                                    </div>
                                 </div>
-                                <a class="view-more" href="https://docs.google.com/viewer?url=https://github.com/hihisohi/resume2022/blob/main/ppt_there.pdf?raw=T" target="_blank">+</a>
-                            </li>
-                            <li>
-                                <div class="bg-area be02"></div>
-                                <div class="txt-area">
-                                    <strong><span>2nd project</span>THEJOEUN LMS SYSTEM</strong>
-                                    <ul class="quick-btns">
-                                        <li><a href="https://github.com/hihisohi/tjoeun_lms_project" target="_blank">GitHub</a></li>
-                                        <li><a href="https://github.com/hihisohi/tjoeun_lms_submit" target="_blank">프로젝트 산출물(문서)</a></li>
-                                    </ul>
-                                    <p>'더조은아카데미 신규지점 LMS시스템 개발'이라는 가상의 의뢰를 기반으로 작업한 과제물</p>
-                                    <p><span class="emoji">⚙️</span> 개발언어/환경 : JAVA, MVC, ORACLE, DOCKER</p>
-                                </div>
-                                <a class="view-more" href="https://docs.google.com/viewer?url=https://github.com/hihisohi/resume2022/blob/main/ppt_lms.pdf?raw=T" target="_blank">+</a>
-                            </li>
-                            <li>
-                                <div class="bg-area be01"></div>
-                                <div class="txt-area">
-                                    <strong><span>1st project</span>HIZZERIA KIOSK</strong>
-                                    <ul class="quick-btns">
-                                        <li><a href="https://docs.google.com/viewer?url=https://github.com/hihisohi/resume2022/blob/main/ppt_kiosk.pdf?raw=T" target="_blank">PPT</a></li>
-                                    </ul>
-                                    <p>소켓(Socket)통신을 이용한 피자가게 키오스크 구현</p>
-                                    <p><span class="emoji">⚙️</span> 개발언어/환경 : JAVA</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="exp__ptl">
-                        <div class="exp-summary">
-                            <div class="exp-term poppins">2019.12<span>-</span>2021.05</div>
-                            <div class="exp-desc">
-                                <p>FINEAPPLE PTL</p>
-                                <strong>디자인팀 웹퍼블리셔 근무</strong>
-                                <div class="exp-tag"><span>#퍼블리싱</span><span>#다양한 홈페이지 제작 경험</span><span>#xe</span><span>#wordpress</span><span>#gnuborad</span><span>#웹기획</span></div>
                             </div>
-                        </div>
-                        <ul class="exp-pofol">
-                            <li>
-                                <div class="bg-area ptl01"></div>
-                                <div class="txt-area">
-                                    <strong><span>WEB PUBLISHER</span>웹퍼블리셔</strong>
-                                    <div class="quick-btns"></div>
-                                    <p>의료기관, 기업 등 다양한 클라이언트의 홈페이지 제작</p>
-                                    <p><span class="emoji">⚙️</span> 활용기술 : HTML, CSS, JQUERY, JAVASCRIPT, PHP, PHOTOSHOP, ILLUSTRATOR</p>
+                            <ul class="exp-pofol">
+                                <li>
+                                    <div class="bg-area ptl01"></div>
+                                    <div class="txt-area">
+                                        <strong><span>WEB PUBLISHER</span>웹퍼블리셔</strong>
+                                        <div class="quick-btns"></div>
+                                        <p>의료기관, 기업 등 다양한 클라이언트의 홈페이지 제작</p>
+                                        <p>
+                                            <span class="emoji">⚙️</span> 활용기술 : HTML, CSS, JQUERY, JAVASCRIPT, PHP,
+                                            PHOTOSHOP, ILLUSTRATOR
+                                        </p>
+                                    </div>
+                                    <a
+                                        class="view-more"
+                                        href="https://docs.google.com/viewer?url=https://github.com/hihisohi/resume2022/blob/main/ppt_ptl.pdf?raw=T"
+                                        target="_blank"
+                                        >+</a
+                                    >
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="exp__fe">
+                            <div class="exp-summary">
+                                <div class="exp-term poppins">2019.05<span>-</span>2019.10</div>
+                                <div class="exp-desc">
+                                    <p>HIMEDIA ACADEMY</p>
+                                    <strong>스마트웹콘텐츠제작 (웹디자인&웹퍼블리셔)</strong>
+                                    <div class="exp-tag">
+                                        <span>#퍼블리셔되기</span><span>#html</span><span>#css</span
+                                        ><span>#javascript</span><span>#jquery</span>
+                                    </div>
                                 </div>
-                                <a class="view-more" href="https://docs.google.com/viewer?url=https://github.com/hihisohi/resume2022/blob/main/ppt_ptl.pdf?raw=T" target="_blank">+</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="exp__fe">
-                        <div class="exp-summary">
-                            <div class="exp-term poppins">2019.05<span>-</span>2019.10</div>
-                            <div class="exp-desc">
-                                <p>HIMEDIA ACADEMY</p>
-                                <strong>스마트웹콘텐츠제작 (웹디자인&웹퍼블리셔)</strong>
-                                <div class="exp-tag"><span>#퍼블리셔되기</span><span>#html</span><span>#css</span><span>#javascript</span><span>#jquery</span></div>
                             </div>
-                        </div>
-                        <ul class="exp-pofol">
-                            <li>
-                                <div class="bg-area fe01"></div>
-                                <div class="txt-area">
-                                    <strong><span>PORTFOLIO</span>웹퍼블리싱 포트폴리오</strong>
-                                    <ul class="quick-btns">
-                                        <li><a href="https://limelbe.github.io/Portfolio_sohi/" target="_blank">포트폴리오 사이트</a></li>
-                                    </ul>
-                                    <p>AI 데이터 비서 'Edith'컨셉의 신입퍼블리셔 포트폴리오</p>
-                                    <p><span class="emoji">⚙️</span> 개발언어/환경 : HTML, CSS, JQUERY, JAVASCRIPT</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!-- // END section__experience -->
-
-        <div id="about" class="section section__about">
-            <div class="container">
-                <div class="about-box">
-                    <h2 class="section-tit lusitana"><span>I &nbsp;AM</span></h2>
-                    <ul class="about-things">
-                        <li data-posTop="20" data-posLeft="10" data-scroll data-scroll-speed="-1">
-                            <div></div>
-                            <span>웹이라는 자유로운 공간 안에서 무언가를 만들어낸다는 것에 재미를 느낍니다</span>
-                        </li>
-                        <li data-posTop="50" data-posLeft="76" data-scroll data-scroll-speed="3">
-                            <div></div>
-                            <span>Fullstack 개발자를 목표로 하고 있습니다</span>
-                        </li>
-                        <li data-posTop="22" data-posLeft="60" data-scroll data-scroll-speed="-2">
-                            <div></div>
-                            <span>새로운 것을 배우는 걸 좋아합니다</span>
-                        </li>
-                        <li data-posTop="70" data-posLeft="25" data-scroll data-scroll-speed="-2">
-                            <div></div>
-                            <span>좋아하는 일들을 찾아나가는 중입니다</span>
-                        </li>
-                        <li data-posTop="75" data-posLeft="60" data-scroll data-scroll-speed="1">
-                            <div></div>
-                            <span>문제를 해결해 나가는데 쾌감을 느낍니다</span>
-                        </li>
-                        <li data-posTop="60" data-posLeft="10" data-scroll data-scroll-speed="2">
-                            <div></div>
-                            <span>INTP</span>
+                            <ul class="exp-pofol">
+                                <li>
+                                    <div class="bg-area fe01"></div>
+                                    <div class="txt-area">
+                                        <strong><span>PORTFOLIO</span>웹퍼블리싱 포트폴리오</strong>
+                                        <ul class="quick-btns">
+                                            <li>
+                                                <a href="https://limelbe.github.io/Portfolio_sohi/" target="_blank"
+                                                    >포트폴리오 사이트</a
+                                                >
+                                            </li>
+                                        </ul>
+                                        <p>AI 데이터 비서 'Edith'컨셉의 신입퍼블리셔 포트폴리오</p>
+                                        <p>
+                                            <span class="emoji">⚙️</span> 개발언어/환경 : HTML, CSS, JQUERY, JAVASCRIPT
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
             </div>
-        </div>
-        <!-- // END section__about -->
+            <!-- // END section__experience -->
 
-        <div id="contact" class="section section__contact">
-            <div class="container dp-f jcc aic wrap">
-                <h2 class="lusitana">CONTACT</h2>
-                <p>jshee940315@gmail.com</p>
+            <div id="about" class="section section__about">
+                <div class="container">
+                    <div class="about-box">
+                        <h2 class="section-tit lusitana"><span>I &nbsp;AM</span></h2>
+                        <ul class="about-things">
+                            <li data-posTop="20" data-posLeft="10" data-scroll data-scroll-speed="-1">
+                                <div></div>
+                                <span>웹이라는 자유로운 공간 안에서 무언가를 만들어낸다는 것에 재미를 느낍니다</span>
+                            </li>
+                            <li data-posTop="50" data-posLeft="76" data-scroll data-scroll-speed="3">
+                                <div></div>
+                                <span>Fullstack 개발자를 목표로 하고 있습니다</span>
+                            </li>
+                            <li data-posTop="22" data-posLeft="60" data-scroll data-scroll-speed="-2">
+                                <div></div>
+                                <span>새로운 것을 배우는 걸 좋아합니다</span>
+                            </li>
+                            <li data-posTop="70" data-posLeft="25" data-scroll data-scroll-speed="-2">
+                                <div></div>
+                                <span>좋아하는 일들을 찾아나가는 중입니다</span>
+                            </li>
+                            <li data-posTop="75" data-posLeft="60" data-scroll data-scroll-speed="1">
+                                <div></div>
+                                <span>문제를 해결해 나가는데 쾌감을 느낍니다</span>
+                            </li>
+                            <li data-posTop="60" data-posLeft="10" data-scroll data-scroll-speed="2">
+                                <div></div>
+                                <span>INTP</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-        </div>
-        <!-- // END section__contact -->
+            <!-- // END section__about -->
 
-
-        <footer>
-            <div class="container dp-f jcsb">
-                <p class="copyright"><span>SOHI</span> &copy; 2022</p>
-                <a class="totop" href="#intro" data-scroll-to="#intro">BACK TO TOP</a>
+            <div id="contact" class="section section__contact">
+                <div class="container dp-f jcc aic wrap">
+                    <h2 class="lusitana">CONTACT</h2>
+                    <p></p>
+                </div>
             </div>
-        </footer>
-        <!-- // END footer -->
+            <!-- // END section__contact -->
 
-    </div>
-    <!-- // END scroll-container -->
+            <footer>
+                <div class="container dp-f jcsb">
+                    <p class="copyright"><span>SOHI</span> &copy; 2022</p>
+                    <a class="totop" href="#intro" data-scroll-to="#intro">BACK TO TOP</a>
+                </div>
+            </footer>
+            <!-- // END footer -->
+        </div>
+        <!-- // END scroll-container -->
 
-
-
-    <script src="vendor/locomotive-scroll/locomotive-scroll.min.js"></script>
-    <script src="vendor/gsap/gsap.min.js"></script>
-    <script src="vendor/gsap/ScrollTrigger.min.js"></script>
-    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-    <!-- <script src="vendor/swiper/swiper-bundle.min.js"></script> -->
-    <script src="js/script.js"></script>
-</body>
-
+        <script src="vendor/locomotive-scroll/locomotive-scroll.min.js"></script>
+        <script src="vendor/gsap/gsap.min.js"></script>
+        <script src="vendor/gsap/ScrollTrigger.min.js"></script>
+        <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+        <!-- <script src="vendor/swiper/swiper-bundle.min.js"></script> -->
+        <script src="js/script.js"></script>
+    </body>
 </html>
